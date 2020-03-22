@@ -15,12 +15,18 @@ interface IMessageDTO {
     message: ImailMessage;
 }
 
-class EmailService {
+interface IEmailService {
+    sendMail(request: IMessageDTO): void;
+}
 
-    // sendMail(to: ImailTo, message: ImailMessage) {
-    //     console.log(`email enviado para ${to.name}: ${message.subject}`);
-    // }
+// class EmailService {
+//     sendMail({ to,message } : IMessageDTO) {
+//         console.log(`email enviado para ${to.name}: ${message.subject}`);
+//     }
+// }
 
+
+class EmailService implements IEmailService {
     sendMail({ to,message } : IMessageDTO) {
         console.log(`email enviado para ${to.name}: ${message.subject}`);
     }
